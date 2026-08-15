@@ -1,6 +1,7 @@
--- ─────────────────────────────────────────
--- 1. DEPARTMENTS (insert first — doctor needs department_id)
--- ─────────────────────────────────────────
+-- Seed data for Hospital Management System
+-- Default password for all seeded users: Test@1234
+-- Login: POST /api/auth/login  { "email": "...", "password": "Test@1234" }
+-- Use returned token as: Authorization: Bearer <token>
 INSERT INTO department (name, description, floor_number) VALUES
                                                              ('Cardiology',      'Heart and cardiovascular diseases',         2),
                                                              ('Neurology',       'Brain and nervous system disorders',        3),
@@ -19,7 +20,7 @@ INSERT INTO user_table (name, email, password, role, contact_number, is_active, 
 -- Admin
 ('Admin User',
  'admin@hospital.com',
- '$2a$10$oTxu7dJy1ZKLfZImUH77w.x1g/Q.wTOUxgPSqP/glkmeaRs.50Xoq',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
  'ADMIN',
  '9000000001',
  true,
@@ -28,7 +29,7 @@ INSERT INTO user_table (name, email, password, role, contact_number, is_active, 
 -- Doctors
 ('Dr. Rajesh Kumar',
  'rajesh@hospital.com',
- '$2a$10$oTxu7dJy1ZKLfZImUH77w.x1g/Q.wTOUxgPSqP/glkmeaRs.50Xoq',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
  'DOCTOR',
  '9000000002',
  true,
@@ -36,7 +37,7 @@ INSERT INTO user_table (name, email, password, role, contact_number, is_active, 
 
 ('Dr. Priya Sharma',
  'priya@hospital.com',
- '$2a$10$oTxu7dJy1ZKLfZImUH77w.x1g/Q.wTOUxgPSqP/glkmeaRs.50Xoq',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
  'DOCTOR',
  '9000000003',
  true,
@@ -45,7 +46,7 @@ INSERT INTO user_table (name, email, password, role, contact_number, is_active, 
 -- Patients
 ('Amandeep Singh',
  'amandeep@gmail.com',
- '$2a$10$oTxu7dJy1ZKLfZImUH77w.x1g/Q.wTOUxgPSqP/glkmeaRs.50Xoq',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
  'PATIENT',
  '9000000004',
  true,
@@ -53,9 +54,18 @@ INSERT INTO user_table (name, email, password, role, contact_number, is_active, 
 
 ('Simran Kaur',
  'simran@gmail.com',
- '$2a$10$oTxu7dJy1ZKLfZImUH77w.x1g/Q.wTOUxgPSqP/glkmeaRs.50Xoq',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
  'PATIENT',
  '9000000005',
+ true,
+ NOW(), NOW()),
+
+-- Receptionist
+('Reception Desk',
+ 'reception@hospital.com',
+ '$2a$10$Um.pjee6LCaqSs/4j.JH/ez76dkC8QhY7oNejBk3FK/aT4ZuP/noa',
+ 'RECEPTIONIST',
+ '9000000006',
  true,
  NOW(), NOW());
 
@@ -107,7 +117,7 @@ INSERT INTO doctor_available_days (doctor_id, available_days) VALUES
 -- user_id 4 = Amandeep, user_id 5 = Simran
 -- ─────────────────────────────────────────
 INSERT INTO patient (user_id, gender, birth_date, blood_group,
-                     address, emergency_contact,
+                     address, contact_number,
                      medical_history, created_at) VALUES
 
                                                       (4,

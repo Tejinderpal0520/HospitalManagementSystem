@@ -1,7 +1,5 @@
 package com.hospitalmanagement.hospitalmanagementsystem.dto.response;
 
-import com.hospitalmanagement.hospitalmanagementsystem.entity.Doctor;
-import com.hospitalmanagement.hospitalmanagementsystem.entity.Patient;
 import com.hospitalmanagement.hospitalmanagementsystem.enums.AppointmentStatus;
 import com.hospitalmanagement.hospitalmanagementsystem.enums.AppointmentType;
 import lombok.Data;
@@ -12,8 +10,12 @@ import java.time.LocalTime;
 
 @Data
 public class AppointmentResponseDto {
-    private Doctor doctor;
-    private Patient patient;
+    private Long id;
+    private Long patientId;
+    private String patientName;
+    private Long doctorId;
+    private String doctorName;
+    private String departmentName;
     private LocalDate appointmentDate;
     private LocalTime appointmentTime;
     private AppointmentStatus status;
@@ -22,5 +24,5 @@ public class AppointmentResponseDto {
     private String symptoms;
     private String doctorNotes;
     private Integer tokenNumber;
-
+    private LocalDateTime bookedAt;
 }

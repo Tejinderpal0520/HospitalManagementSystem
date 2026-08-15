@@ -46,7 +46,7 @@ public class Patient {
 
     @Column(length = 10)
     @Pattern(regexp = "^[0-9]{10}$", message = "Invalid phone number")
-    private String emergencyContact;
+    private String contactNumber;
 
     @Column(columnDefinition = "TEXT")
     private String medicalHistory;

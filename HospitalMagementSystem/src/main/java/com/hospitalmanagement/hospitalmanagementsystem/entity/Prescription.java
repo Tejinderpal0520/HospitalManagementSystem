@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -42,7 +43,7 @@ public class Prescription {
     private LocalDateTime issuedAt;
 
     @OneToMany(mappedBy = "prescription", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.ALL)
-    private HashSet<PrescriptionItem> prescriptionItems = new HashSet<>();
+    private Set<PrescriptionItem> prescriptionItems = new HashSet<>();
 }
 //id Long @Id @GeneratedValue Primary key
 //appointment Appointment @OneToOne Linked to one specific appointment

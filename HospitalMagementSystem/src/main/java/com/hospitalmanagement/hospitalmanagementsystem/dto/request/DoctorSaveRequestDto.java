@@ -20,7 +20,7 @@ public class DoctorSaveRequestDto {
     private String password;
     private UsersRoleEnum role;
     private String contactNumber;
-    private Department department;
+    private Long departmentId;
     private String specialization;
     private String qualification;
     private int experienceYears;
@@ -29,8 +29,4 @@ public class DoctorSaveRequestDto {
     private LocalTime availableFrom;
     private LocalTime availableTo;
     private String bio;
-
-    public Long getDepartmentId() {
-        return department.getId();
-    }
 }

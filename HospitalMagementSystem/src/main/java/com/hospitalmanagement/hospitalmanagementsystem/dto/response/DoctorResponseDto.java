@@ -1,7 +1,5 @@
 package com.hospitalmanagement.hospitalmanagementsystem.dto.response;
 
-import com.hospitalmanagement.hospitalmanagementsystem.entity.Department;
-import com.hospitalmanagement.hospitalmanagementsystem.enums.UsersRoleEnum;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -11,11 +9,13 @@ import java.util.List;
 
 @Data
 public class DoctorResponseDto {
+    private Long id;
     private String name;
     private String email;
-    private UsersRoleEnum role;
+    private com.hospitalmanagement.hospitalmanagementsystem.enums.UsersRoleEnum role;
     private String contactNumber;
-    private Department department;
+    private Long departmentId;
+    private String departmentName;
     private String specialization;
     private String qualification;
     private int experienceYears;

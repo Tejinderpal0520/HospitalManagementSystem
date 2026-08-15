@@ -13,6 +13,7 @@ import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -67,10 +68,10 @@ public class Doctor {
     private String bio;
 
     @OneToMany(mappedBy = "doctor")
-    private HashSet<Appointment> appointments = new HashSet<>();
+    private Set<Appointment> appointments = new HashSet<>();
 
     @OneToMany(mappedBy = "doctor")
-    private HashSet<MedicalRecord> medicalRecords = new HashSet<>();
+    private Set<MedicalRecord> medicalRecords = new HashSet<>();
 }
 //Field Type / JPA Notes
 //id Long @Id @GeneratedValue Primary key

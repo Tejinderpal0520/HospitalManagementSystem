@@ -16,6 +16,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -24,7 +25,7 @@ import java.util.List;
 @Setter
 @Table(
         uniqueConstraints = {
-                @UniqueConstraint(columnNames = {"doctor_id", "appointmentTime", "appointmentDate", "tokenNumber"})
+                @UniqueConstraint(columnNames = {"doctor_id", "appointment_date", "appointment_time"})
         }
 )
 public class Appointment {
@@ -78,7 +79,7 @@ public class Appointment {
     private Prescription prescription;
 
     @OneToMany(mappedBy = "appointment")
-    private HashSet<MedicalRecord> medicalRecords = new HashSet<>();
+    private Set<MedicalRecord> medicalRecords = new HashSet<>();
 
     @OneToMany(mappedBy = "appointment")
     private List<Bill> bills = new ArrayList<>();
